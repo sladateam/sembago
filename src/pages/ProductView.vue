@@ -1,5 +1,17 @@
 <template>
   <q-page class="bg-grey-3">
+    <div class="fit row wrap justify-start items-start q-pt-lg q-px-md">
+      <div class="col-4" v-for="(category, k) in categories" :key="k">
+        <q-btn flat class="row bg-green text-white text-capitalize" style="font-size: 12px; line-height: 14px; width: 110px; height: 40px !important; margin: 0px 5px 5px 5px">
+          <div class="col-sm-4 text-left self-center">
+            <q-icon left :name="category.image" />
+          </div>
+          <div class="col-sm-8 text-left self-center">
+            {{ category.name }}
+          </div>
+        </q-btn>
+      </div>
+    </div>
     <div class="fit row wrap justify-start items-start q-py-lg q-px-md">
       <div class="col-6" v-for="(prd, i) in products" :key="i">
         <q-card class="bg-white" style="margin: 0px 5px 15px 5px" flat bordered>
@@ -46,6 +58,31 @@ export default {
       cart: [],
       visibleProgress: false,
       buttonLoading: [],
+      categories: [{
+        id: 1,
+        name: 'Beras',
+        image: 'las la-seedling'
+      },{
+        id: 2,
+        name: 'Minyak Goreng',
+        image: 'las la-oil-can'
+      },{
+        id: 3,
+        name: 'Bumbu Dapur',
+        image: 'las la-mortar-pestle'
+      },{
+        id: 4,
+        name: 'Susu',
+        image: 'las la-mug-hot'
+      },{
+        id: 5,
+        name: 'Produk Kebersihan',
+        image: 'las la-shower'
+      },{
+        id: 6,
+        name: 'Air Minum',
+        image: 'las la-tint'
+      }]
     }
   },
   created () {
